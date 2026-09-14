@@ -1,7 +1,6 @@
 const REPORT_COUNT = 14;
-const SLIDE_COUNT = 35;
+const SLIDE_COUNT = 34;
 let currentSlide = 1;
-let viewer = sessionStorage.getItem('uvt-viewer') || '';
 
 const reportPages = document.getElementById('report-pages');
 for (let n = 1; n <= REPORT_COUNT; n += 1) {
@@ -21,33 +20,6 @@ for (let n = 1; n <= SLIDE_COUNT; n += 1) {
   button.innerHTML = `<img loading="lazy" src="./assets/slides/slide-${String(n).padStart(2, '0')}.webp" alt=""><span>${n}</span>`;
   slideStrip.append(button);
 }
-
-function safeText(value) {
-  return value.replace(/[<>"'&]/g, '').trim().slice(0, 80);
-}
-
-function watermarkSvg(name) {
-  const line = encodeURIComponent(`${name} · ДЕМО · ${new Date().toLocaleDateString('ru-RU')}`);
-  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='180'%3E%3Ctext x='24' y='100' transform='rotate(-22 24 100)' font-family='Arial' font-size='17' font-weight='700' fill='%23101a33'%3E${line}%3C/text%3E%3C/svg%3E")`;
-}
-
-function applyViewer(name) {
-  viewer = safeText(name) || 'Гость';
-  sessionStorage.setItem('uvt-viewer', viewer);
-  document.querySelectorAll('.report-page').forEach((page) => {
-    if (!page.querySelector('.live-watermark')) {
-      page.insertAdjacentHTML('beforeend', '<div class="live-watermark" aria-hidden="true"></div>');
-    }
-  });
-  document.querySelectorAll('.live-watermark').forEach((mark) => { mark.style.backgroundImage = watermarkSvg(viewer); });
-  document.getElementById('identity-modal').classList.add('hidden');
-}
-
-document.getElementById('identity-form').addEventListener('submit', (event) => {
-  event.preventDefault();
-  applyViewer(document.getElementById('viewer-name').value);
-});
-if (viewer) applyViewer(viewer);
 
 document.querySelectorAll('.file-tab').forEach((tab) => {
   tab.addEventListener('click', () => {

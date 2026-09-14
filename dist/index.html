@@ -28,7 +28,7 @@
     </button>
     <button class="file-tab" data-view="slides" aria-selected="false">
       <span class="file-icon power">P</span>
-      <span><b>Презентация</b><small>PowerPoint · 35 слайдов</small></span>
+      <span><b>Презентация</b><small>PowerPoint · 34 слайда</small></span>
     </button>
   </nav>
 
@@ -59,11 +59,10 @@
         <div class="stage-wrap">
           <div class="slide-stage" id="slide-stage">
             <img id="main-slide" src="./assets/slides/slide-01.webp" alt="Слайд 1">
-            <div class="live-watermark" aria-hidden="true"></div>
           </div>
           <div class="slide-controls">
             <button id="prev-slide" aria-label="Предыдущий слайд">‹</button>
-            <span id="slide-counter">Слайд 1 из 35</span>
+            <span id="slide-counter">Слайд 1 из 34</span>
             <button id="next-slide" aria-label="Следующий слайд">›</button>
             <button id="fullscreen" class="fullscreen">На весь экран</button>
           </div>
@@ -71,18 +70,6 @@
       </div>
     </section>
   </main>
-
-  <div id="identity-modal" class="identity-modal" role="dialog" aria-modal="true" aria-labelledby="identity-title">
-    <form id="identity-form" class="identity-card">
-      <span class="lock-icon" aria-hidden="true">◆</span>
-      <h1 id="identity-title">Защищённая демонстрация</h1>
-      <p>Укажите имя, чтобы открыть материалы. Оно появится на экране как персональный водяной знак.</p>
-      <label for="viewer-name">Имя зрителя</label>
-      <input id="viewer-name" name="viewer-name" autocomplete="name" maxlength="80" required placeholder="Например, Алексей Петров">
-      <button type="submit">Открыть просмотр</button>
-      <small>Материалы защищены авторским правом. Копирование и распространение запрещены.</small>
-    </form>
-  </div>
 
   <div id="toast" class="toast" role="status" aria-live="polite">Копирование отключено для демонстрационной версии</div>
   <script src="./app.js"></script>
