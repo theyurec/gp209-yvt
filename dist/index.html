@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="referrer" content="no-referrer">
+  <title>УВТ — защищённая демонстрация</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101a33'/%3E%3Cpath d='M20 15h19l9 9v25H20z' fill='%23fff'/%3E%3Cpath d='M39 15v10h9' fill='%23b9c7ee'/%3E%3Cpath d='M26 33h16M26 39h16M26 45h10' stroke='%235b6fae' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="appbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">УВТ</span>
+      <div>
+        <strong>Материалы проекта</strong>
+        <span>Защищённый просмотр</span>
+      </div>
+    </div>
+    <div class="security-note" aria-label="Статус доступа"><span></span> Доступ только для согласованного просмотра</div>
+  </header>
+
+  <nav class="file-tabs" aria-label="Выбор файла">
+    <button class="file-tab active" data-view="report" aria-selected="true">
+      <span class="file-icon word">W</span>
+      <span><b>Доклад</b><small>Word · 14 страниц</small></span>
+    </button>
+    <button class="file-tab" data-view="slides" aria-selected="false">
+      <span class="file-icon power">P</span>
+      <span><b>Презентация</b><small>PowerPoint · 35 слайдов</small></span>
+    </button>
+  </nav>
+
+  <main>
+    <section id="report-view" class="viewer-view active" aria-label="Доклад Word">
+      <div class="word-ribbon" aria-hidden="true">
+        <span class="ribbon-file">Файл</span><span>Главная</span><span>Вставка</span><span>Макет</span><span>Рецензирование</span>
+        <span class="readonly">Только чтение</span>
+      </div>
+      <div class="word-toolbar" aria-hidden="true">
+        <span class="toolbar-group"><b>Calibri</b><i>12</i></span>
+        <span class="toolbar-group toolbar-icons"><b>Ж</b><em>К</em><u>Ч</u></span>
+        <span class="toolbar-group">Абзац</span>
+      </div>
+      <div class="document-shell">
+        <div class="document-meta"><span>Доклад</span><span id="report-position">Страница 1 из 14</span></div>
+        <div id="report-pages" class="report-pages"></div>
+      </div>
+    </section>
+
+    <section id="slides-view" class="viewer-view" aria-label="Презентация PowerPoint">
+      <div class="power-ribbon" aria-hidden="true">
+        <span class="ribbon-file orange">Файл</span><span>Главная</span><span>Вставка</span><span>Дизайн</span><span>Переходы</span><span>Показ слайдов</span>
+        <span class="readonly">Только чтение</span>
+      </div>
+      <div class="presentation-workspace">
+        <aside id="slide-strip" class="slide-strip" aria-label="Миниатюры слайдов"></aside>
+        <div class="stage-wrap">
+          <div class="slide-stage" id="slide-stage">
+            <img id="main-slide" src="./assets/slides/slide-01.webp" alt="Слайд 1">
+            <div class="live-watermark" aria-hidden="true"></div>
+          </div>
+          <div class="slide-controls">
+            <button id="prev-slide" aria-label="Предыдущий слайд">‹</button>
+            <span id="slide-counter">Слайд 1 из 35</span>
+            <button id="next-slide" aria-label="Следующий слайд">›</button>
+            <button id="fullscreen" class="fullscreen">На весь экран</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="identity-modal" class="identity-modal" role="dialog" aria-modal="true" aria-labelledby="identity-title">
+    <form id="identity-form" class="identity-card">
+      <span class="lock-icon" aria-hidden="true">◆</span>
+      <h1 id="identity-title">Защищённая демонстрация</h1>
+      <p>Укажите имя, чтобы открыть материалы. Оно появится на экране как персональный водяной знак.</p>
+      <label for="viewer-name">Имя зрителя</label>
+      <input id="viewer-name" name="viewer-name" autocomplete="name" maxlength="80" required placeholder="Например, Алексей Петров">
+      <button type="submit">Открыть просмотр</button>
+      <small>Материалы защищены авторским правом. Копирование и распространение запрещены.</small>
+    </form>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">Копирование отключено для демонстрационной версии</div>
+  <script src="./app.js"></script>
+</body>
+</html>
