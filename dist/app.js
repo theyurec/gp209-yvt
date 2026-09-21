@@ -1,5 +1,5 @@
-const REPORT_COUNT = 14;
-const SLIDE_COUNT = 34;
+const REPORT_COUNT = 9;
+const SLIDE_COUNT = 32;
 let currentSlide = 1;
 
 const reportPages = document.getElementById('report-pages');
